@@ -1,0 +1,211 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+
+.footer {
+   // display: none;
+   @include adaptiveValue('padding-top', 73, 30);
+   border-top: toRem(1) solid $bgButton;
+}
+
+.body-footer {
+
+   // .body-footer__container
+   &__container {
+      display: flex;
+      @include adaptiveValue('column-gap', 227, 30);
+
+      @media (max-width: toEm(840)) {
+            flex-direction: column;
+            @include adaptiveValue('row-gap', 40, 20);
+         }
+      @media (max-width: toEm(511)) {
+        align-items: center;
+      }
+   }
+
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      @include adaptiveValue('row-gap', 30, 20);
+      flex-grow: 1;
+      align-items: flex-start;
+
+      @media (max-width: toEm(511)) {
+        flex-direction: column;
+      }
+   }
+
+   // .body-footer__column
+   &__column {
+
+      &--last-child {
+         // align-items: flex-end;
+         max-width: toRem(208);
+      }
+   }
+}
+
+.media {
+   display: flex;
+   flex-direction: column;
+   @include adaptiveValue('row-gap', 70, 25);
+
+   @media (max-width: toEm(511)) {
+         align-items: center;
+      }
+}
+
+.social-media {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: toRem(20);
+   // .social-media__item
+   &__item {
+      line-height: 0;
+   }
+
+   // .social-media__link
+   &__link {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: toRem(40);
+        aspect-ratio: 1;
+        background-color: $bgButton;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      @include hover {
+        &::after {
+         opacity: 0.8;
+        }
+      }
+
+   }
+}
+
+.column-body {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   @include adaptiveValue('row-gap', 28, 15);
+
+   @media (max-width: toEm(511)) {
+         align-items: center;
+         width: 100%;
+      }
+   // .column-body__title
+   &__title {
+      font-family: "KoPub Batang",sans-serif;
+      // @include adaptiveValue('margin-bottom', 28, 14);
+      @include adaptiveValue('font-size', 20, 18);
+      color: $black;
+      line-height: 110%; /* 22/20 */
+   }
+
+   // .column-body__list
+   &__list {
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue('row-gap', 20, 15);
+
+      @media (max-width: toEm(511)) {
+        align-items: center;
+      }
+   }
+
+   // .column-body__link
+   &__link {
+      @include adaptiveValue('font-size', 17, 13);
+      line-height: 117.647059%; /* 20/17 */
+      transition: color 0.3s, text-shadow 0.3s;
+      @include hover {
+         color: $colorPrimary;
+         text-shadow: 1px 3px 4px #2C2C2C;
+      }
+   }
+}
+
+.address {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+
+   @media (max-width: toEm(511)) {
+     align-items: center;
+     width: 100%;
+   }
+   // .address__list
+   &__list {
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue('row-gap', 20, 15);
+      align-items: flex-end;
+      @include adaptiveValue('margin-bottom', 20, 10);
+
+      @media (max-width: toEm(511)) {
+        align-items: center;
+         .address__item {
+            text-align: center;
+         }
+      }
+   }
+
+   // .address__item
+   &__item {
+      text-align: right;
+      &:first-child {
+         font-family: "KoPub Batang", sans-serif;
+         // margin-bottom: toRem(28);
+         color: $black;
+         @include adaptiveValue('font-size', 20, 18);
+      }
+
+
+   }
+
+   // .address__link
+   &__link {
+      @include adaptiveValue('font-size', 17, 13);
+      transition: color 0.3s, text-shadow 0.3s;
+
+      @include hover {
+         color: $colorPrimary;
+         text-shadow: 1px 3px 4px #2C2C2C;
+      }
+   }
+
+   // .address__schedule
+   &__schedule {
+      align-self: flex-end;
+      @media (max-width: toEm(511)) {
+         align-self: center;
+      }
+   }
+}
+
+.bottom-footer {
+   @include adaptiveValue('padding-top', 37, 15);
+   padding-bottom: toRem(11);
+   // .bottom-footer__container
+   &__container {
+      text-align: center;
+   }
+
+   // .bottom-footer__copyright
+   &__copyright {
+      text-align: center;
+      @include adaptiveValue('font-size', 15, 13);
+      line-height: 120%; /* 18/15 */
+   }
+}

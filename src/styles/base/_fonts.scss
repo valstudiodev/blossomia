@@ -1,0 +1,23 @@
+@font-face {
+   font-family: "KoPub Batang";
+   src: url(/src/assets/fonts/KoPubBatang-Bold.woff2) format("woff2");
+   font-display: swap;
+   font-weight: 700;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "KoPub Batang";
+   src: url(/src/assets/fonts/KoPubBatang-Light.woff2) format("woff2");
+   font-display: swap;
+   font-weight: 300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "KoPub Batang";
+   src: url(/src/assets/fonts/KoPubBatang-Regular.woff2) format("woff2");
+   font-display: swap;
+   font-weight: 400;
+   font-style: normal;
+}

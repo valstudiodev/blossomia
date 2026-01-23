@@ -1,0 +1,280 @@
+@use "sass:math";
+@use './settings/settings' as *;
+@use './settings/_mixins.scss' as *;
+
+.components {
+
+   // .components__container
+   &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(50);
+      padding-top: toRem(50);
+   }
+
+   // .components__item
+   &__item {}
+}
+
+// ===========================================================================================
+// -----------------------------
+// Buttons-active
+// -----------------------------
+.icon-menu {
+   position: relative;
+   width: toRem(22);
+   height: toRem(22);
+   z-index: 10;
+   flex-shrink: 0;
+
+   &::before,
+   &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: toRem(3);
+      border-radius: toRem(10);
+      background-color: $colorPrimary;
+      transition: all 0.3s;
+   }
+
+   &::before {
+      top: 0;
+      width: 100%;
+   }
+
+   &::after {
+      bottom: 0;
+      width: 50%;
+   }
+
+   span {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      translate: 0 -50%;
+      background-color: $colorPrimary;
+      width: 75%;
+      height: toRem(3);
+      border-radius: toRem(10);
+      transition: all 0.3s;
+   }
+
+   @media (min-width: toEm(720.98)) {
+      display: none;
+   }
+}
+
+.menu-open {
+   .icon-menu {
+      &::before {
+         top: 50%;
+         rotate: 45deg;
+         translate: 0 -50%;
+      }
+
+      &::after {
+         top: 50%;
+         rotate: -45deg;
+         translate: 0 -50%;
+         width: 100%;
+      }
+
+      span {
+         width: 0;
+      }
+   }
+}
+
+.icon-more {
+   position: relative;
+   width: toRem(15);
+   height: toRem(15);
+   z-index: 10;
+   flex-shrink: 0;
+
+   &::before,
+   &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      // background-color: $purpleLight;
+      height: toRem(2);
+      border-radius: toRem(6);
+   }
+
+   &::before {
+      left: 0;
+      top: 50%;
+      translate: 0 -50%;
+   }
+
+   &::after {
+      rotate: 90deg;
+      top: 50%;
+      translate: 0 -50%;
+   }
+}
+
+.button {
+   position: relative;
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: center;
+   font-size: toRem(17);
+   line-height: 1.37;
+   text-transform: capitalize;
+   gap: toRem(7);
+   background-color: $bgButton;
+   padding-block: toRem(9);
+   padding-inline: toRem(28);
+   border: none;
+   transition: all 0.3s;
+
+   &::before {
+      rotate: 180deg;
+      font-size: toRem(14);
+      will-change: animation;
+   }
+
+   &::after {
+     content: "";
+     position: absolute;
+     inset: toRem(-10);
+     border: toRem(1) solid $bgButton;
+     transition: border-color 0.3s;
+   }
+
+   &--order {
+      padding-inline: toRem(55);
+   }
+
+   &--more {
+      padding-inline: toRem(30);
+   }
+
+   @include hover {
+      background-color: rgb(165, 143, 117);
+      color: $white;
+      &::before {
+         animation: arrowMove 0.8s ease-in-out infinite;
+      }
+      &::after {
+         border-color: rgb(165, 143, 117);
+      }
+   }
+
+   // .button--icon-arrow-bt
+   &--icon-arrow-bt {}
+}
+
+.title {
+   font-family: "KoPub Batang",sans-serif;
+   @include adaptiveValue('font-size', 60, 26);
+   font-weight: 300;
+   line-height: 110%; /* 66/60 */
+   color: $colorTitle;
+}
+
+.item-catalog {
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(14);
+   }
+
+   &--margin {
+      @include adaptiveValue('margin-bottom', 60, 30);
+   }
+
+   // .item-catalog__imahe
+   &__image {
+      aspect-ratio: 1;
+      overflow: hidden;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         transition: scale 0.5s ease;
+         will-change: scale;
+
+         @include hover {
+           scale: 1.05;
+         }
+      }
+   }
+
+   // .item-catalog__content
+   &__content {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(14);
+      align-items: flex-start;
+   }
+
+   // .item-catalog__top
+   &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: toRem(20);
+      width: 100%;
+   }
+
+   // .item-catalog__title
+   &__title {
+      font-family: "KoPub Batang",sans-serif;
+      @include adaptiveValue('font-size', 20, 16);
+      flex-grow: 1;
+      line-height: 110%; /* 22/20 */
+   }
+
+   // .item-catalog__actions
+   &__actions {}
+
+   // .item-catalog__price
+   &__price {
+      @include adaptiveValue('font-size', 18, 14);
+      line-height: 122.222222%; /* 22/18 */
+      color: $colorAccent;
+   }
+}
+
+.actions {
+   display: flex;
+   align-items: center;
+   gap: toRem(20);
+   // .actions__button
+   &__button {
+      line-height: 0;
+      transition: scale 0.3s ease, color 0.3s;
+      will-change: scale;
+
+      @include hover {
+        scale: 1.05;
+        color: #948e8e;
+      }
+   }
+}
+
+.decor {
+   display: flex;
+   align-items: center;
+   gap: toRem(10);
+   color: $decorColor;
+   &__number {
+      @include adaptiveValue('font-size', 14, 10);
+      line-height: 1.37;
+   }
+
+   &__line {
+
+      width: toRem(192);
+      height: toRem(1);
+      background-color: $decorColor;
+   }
+}
