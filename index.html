@@ -6,7 +6,7 @@
    <style>
       /* Миттєвий фон для всього вікна */
       html {
-         background-color: #292F36;
+         background-color: #F8F3EC;
       }
 
       /* Ховаємо контент, поки немає статусу "ready" */
@@ -90,7 +90,7 @@
 
          <section class="page__hero hero">
             <div class="hero__container hero__container--1600">
-               <div class="hero__column column-hero column-hero--left">
+               <div class="hero__column column-hero column-hero--left" data-delay="3000">
                   <h1 class="column-hero__title">Discover Our Flower Shop's Delightful Collection</h1>
                   <div class="column-hero__body">
                      <div class="column-hero__image">
@@ -108,7 +108,7 @@
                      </div>
                   </div>
                </div>
-               <div class="hero__column column-hero column-hero--rigth">
+               <div class="hero__column column-hero column-hero--rigth" data-delay="1000">
                   <div class="column-hero__image column-hero__image---rigth">
                      <img src="/src/assets/img/hero/hero-img-big.webp" alt="hero image big">
                   </div>
@@ -123,7 +123,7 @@
 
          <section class="page__popular popular">
             <div class="popular__container">
-               <div class="popular__column column-popular">
+               <div class="popular__column column-popular column-popular--anim" data-treshol="0.1">
                   <div class="column-popular__image">
                      <img src="/src/assets/img/popular/popular-img-01.webp" alt="image popular">
                   </div>
@@ -143,7 +143,7 @@
                      </button>
                   </div>
                </div>
-               <div class="popular__row row-popular">
+               <div class="popular__row row-popular row-popular--anim" data-treshol="0.3" data-delay="500">
                   <h2 class="row-popular__title title">Unveiling Our Popular Bouquet Collection</h2>
                   <div class="row-popular__items">
                      <article class="item-popular">
@@ -171,7 +171,8 @@
 
          <section class="page__memories memories">
             <div class="memories__container">
-               <div class="memories__column column-memories column-memories--left">
+               <div class="memories__column column-memories column-memories--anim column-memories--left"
+                  data-delay="500">
                   <div class="column-memories__inner column-memories__inner--left">
                      <h2 class="column-memories__title title">A Fragrant Tale: Weaving Memories with Flowers</h2>
                      <div class="column-memories__image column-memories__image--left">
@@ -179,7 +180,7 @@
                      </div>
                   </div>
                </div>
-               <div class="memories__column column-memories column-memories--right">
+               <div class="memories__column column-memories column-memories--anim column-memories--right">
                   <div class="column-memories__inner column-memories__inner--right">
                      <div class="column-memories__image column-memories__image--right">
                         <img src="/src/assets/img/memories/memories-02.webp" alt="memories image">
@@ -209,8 +210,8 @@
 
          <section class="page__catalog catalog">
             <div class="catalog__container">
-               <div class="catalog__column column-catalog column-catalog--flex">
-                  <article class="item-catalog">
+               <div class="catalog__column column-catalog column-catalog--anim column-catalog--flex">
+                  <article class="item-catalog ">
                      <a href="#" class="item-catalog__inner">
                         <div class="item-catalog__image">
                            <img src="/src/assets/img/catalog/popular-img-01.webp" alt="catalog image">
@@ -247,7 +248,7 @@
                   <button type="button" class="column-catalog__button button button--more button--icon-arrow-bt">Open
                      More</button>
                </div>
-               <div class="catalog__column column-catalog column-catalog--grid">
+               <div class="catalog__column column-catalog column-catalog--anim column-catalog--grid" data-delay="500">
                   <h2 class="column-catalog__title title">Catalog of Floral Delights for Every Occasion</h2>
                   <div class="column-catalog__grid">
                      <article class="item-catalog">
@@ -325,13 +326,14 @@
 
          <section class="page__discount discount">
             <div class="discount__container">
-               <div class="discount__column column-discount column-discount--left">
+               <div class="discount__column column-discount column-discount--anim column-discount--left"
+                  data-delay="500">
                   <h2 class="column-discount__title title">20% Off Your First Purchase at Our Store!</h2>
                   <div class="column-discount__image column-discount__image--left">
                      <img src="/src/assets/img/off/discount-01.webp" alt="discount image">
                   </div>
                </div>
-               <div class="discount__column column-discount column-discount--right">
+               <div class="discount__column column-discount column-discount--anim column-discount--right">
                   <div class="column-discount__image column-discount__image--right">
                      <img src="/src/assets/img/off/discount-02.webp" alt="discount image">
                   </div>
@@ -353,7 +355,7 @@
 
          <section class="page__follow follow">
             <div class="follow__container">
-               <div class="follow__column column-follow column-follow--left">
+               <div class="follow__column column-follow column-follow--anim column-follow--left">
                   <div class="column-follow__image">
                      <img src="/src/assets/img/follow/follow-img-01.webp" alt="image follow">
                   </div>
@@ -366,7 +368,7 @@
                      </p>
                   </div>
                </div>
-               <div class="follow__column column-follow column-follow--right">
+               <div class="follow__column column-follow column-follow--anim column-follow--right" data-delay="500">
                   <h2 class="column-follow__title title">Stay Connected: Follow Our Floral Journey</h2>
                   <a href="#" class="column-follow__link">@blossomiaflowerstudio</a>
                   <div class="column-follow__images image-follow">
@@ -382,7 +384,7 @@
          </section>
       </main>
 
-      <footer class="footer">
+      <footer class="footer footer--anim" data-delay="300">
          <div class="footer__body body-footer">
             <div class="body-footer__container">
                <div class="body-footer__media media">

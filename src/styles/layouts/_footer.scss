@@ -6,6 +6,15 @@
    // display: none;
    @include adaptiveValue('padding-top', 73, 30);
    border-top: toRem(1) solid $bgButton;
+   opacity: 0;
+   scale: 0;
+   transition: opacity 0.6s, scale 0.6s;
+   will-change: opacity,scale;
+
+   &.animate {
+      opacity: 1;
+      scale: 1;
+   }
 }
 
 .body-footer {

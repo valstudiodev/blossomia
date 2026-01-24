@@ -5,14 +5,16 @@ import { initDropdowns } from './dropdownMenu';
 import { initEffects } from './effects';
 import { formUtils } from './formUtils';
 import { initUtils } from './initUtils';
-import { initLoadAnimation } from './appInit'
+// import { initLoadAnimation } from './initLoader'
+import { initLoader } from './initLoader';
 // ===========================================================================================
 // -----------------------------
 // ГОЛОВНИЙ ЗАПУСК
 // -----------------------------
 function initApp() {
+   // initLoadAnimation()
+   initLoader()
    initInputMode()
-   initLoadAnimation()
    // initUtils()
    // initDropdowns()
    initEffects()

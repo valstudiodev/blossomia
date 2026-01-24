@@ -74,6 +74,7 @@
 
 .column-hero {
 
+
    // .column-hero--left
    &--left {
       flex: 1 1 toRem(902);
@@ -81,6 +82,16 @@
       flex-direction: column;
       @include adaptiveValue('gap',82,30);
       padding-top: toRem(100);
+      opacity: 0;
+      scale: 0;
+      transition: opacity 1.2s,scale 1.2s;
+      will-change: opacity,scale;
+
+      [init-page-loader="ready"] & {
+         opacity: 1;
+         scale: 1;
+      }
+
 
       &:has(.column-hero__title) {
          .column-hero__title {
@@ -105,6 +116,15 @@
       flex-direction: column;
       align-items: center;
       @include adaptiveValue('gap',100,20);
+      opacity: 0;
+      scale: 0;
+      transition: opacity 0.8s, scale 0.8s;
+      will-change: opacity, scale;
+
+      [init-page-loader="ready"] & {
+         opacity: 1;
+         scale: 1;
+      }
 
       @media (max-width: toEm(690)) {
         flex: 0;
@@ -202,7 +222,13 @@
    flex: 1 1 toRem(490);
    flex-direction: column;
    gap: toRem(14);
-   // width: 40.416667%;
+   opacity: 0;
+   transition: opacity 0.8s;
+   will-change: opacity;
+
+   &.animate {
+      opacity: 1;
+   }
 
    @media (max-width: toEm(550)) {
      order: 2;
@@ -286,6 +312,13 @@
 .row-popular {
    flex: 1 1 toRem(670);
    align-self: center;
+   opacity: 0;
+   transition: opacity 0.8s;
+   will-change: opacity;
+
+   &.animate {
+      opacity: 1;
+   }
 
    @media (max-width: toEm(550)) {
      order: 1;
@@ -388,10 +421,28 @@
 
    &--left {
       width: 42.833333%; /* 514/1200 */
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 0.8s, translate 0.8s;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 
    &--right {
       width: 50.916667%; /* 611/1200 */
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 0.8s, translate 0.8s;
+      will-change: opacity,translate ;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 
    @media (max-width: toEm(610)) {
@@ -514,6 +565,15 @@
    &--left {
       width: 41.833333%; /* 502/1200 */
       @include adaptiveValue('gap',75,30);
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 0.8s, translate 0.8s;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       @media (max-width: toEm(515)) {
          width: 100%;
@@ -524,6 +584,15 @@
    &--right {
       width: 54.916667%; /* 659/1200 */
       @include adaptiveValue('gap',53,25);
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 0.8s, translate 0.8s;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       @media (max-width: toEm(515)) {
         width: 100%;
@@ -600,7 +669,7 @@
 
 // ===========================================================================================
 // -----------------------------
-// discount
+// catalog
 // -----------------------------
 .catalog {
 
@@ -619,6 +688,15 @@
 }
 
 .column-catalog {
+   opacity: 0;
+   translate: 0 toRem(30);
+   transition: opacity 0.8s, translate 0.8s;
+   will-change: opacity, translate;
+
+   &.animate {
+      opacity: 1;
+      translate: 0 0;
+   }
 
    &--flex {
       width: 33.333333%; /* 400/1200 */
@@ -644,6 +722,12 @@
       display: grid;
       @include adaptiveValue('gap',78,30);
       width: 64.166667%; /* 770/1200 */
+      // opacity: 0;
+      // transition: opacity 0.8s;
+
+      // &.animate {
+      //    opacity: 1;
+      // }
 
       @media (max-width: toEm(760)) {
         order: 1;
@@ -705,6 +789,15 @@
    &--left {
       flex: 1 1 toRem(478);
       @include adaptiveValue('gap',56,20);
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 0.8s, translate 0.8s;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       @media (max-width: toEm(600)) {
         order: 2;
@@ -715,6 +808,16 @@
    &--right {
       flex: 1 1 toRem(688);
       padding-top: toRem(62);
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 0.8s,translate 0.8s;
+      will-change: opacity,translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
+
       > * {
          @include adaptiveValue('margin-bottom', 41, 20);
          &:last-child {
