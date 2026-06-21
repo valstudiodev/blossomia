@@ -66,7 +66,6 @@
       display: none;
    }
 }
-
 .menu-open {
    .icon-menu {
       &::before {
@@ -87,7 +86,6 @@
       }
    }
 }
-
 .icon-more {
    position: relative;
    width: toRem(15);
@@ -117,14 +115,12 @@
       translate: 0 -50%;
    }
 }
-
 .button {
    position: relative;
    display: flex;
    flex-direction: row-reverse;
    align-items: center;
    font-size: toRem(17);
-   line-height: 1.37;
    text-transform: capitalize;
    gap: toRem(7);
    background-color: $bgButton;
@@ -136,7 +132,8 @@
    &::before {
       rotate: 180deg;
       font-size: toRem(14);
-      will-change: animation;
+      will-change: translate;
+      transition: translate 0.3s;
    }
 
    &::after {
@@ -159,15 +156,12 @@
       background-color: rgb(165, 143, 117);
       color: $white;
       &::before {
-         animation: arrowMove 0.8s ease-in-out infinite;
+        translate: toRem(8) 0;
       }
       &::after {
          border-color: rgb(165, 143, 117);
       }
    }
-
-   // .button--icon-arrow-bt
-   &--icon-arrow-bt {}
 }
 
 .title {

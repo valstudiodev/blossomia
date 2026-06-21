@@ -12,20 +12,20 @@ import { initLoader } from './initLoader';
 // ГОЛОВНИЙ ЗАПУСК
 // -----------------------------
 function initApp() {
-   // initLoadAnimation()
-   initLoader()
-   initInputMode()
-   // initUtils()
-   // initDropdowns()
-   initEffects()
-   // movingElements()
-   // formUtils()
+  // initLoadAnimation()
+  initLoader()
+  initInputMode()
+  // initUtils()
+  // initDropdowns()
+  initEffects()
+  // movingElements()
+  formUtils()
 }
 
 if (document.readyState === 'loading') {
-   document.addEventListener('DOMContentLoaded', initApp);
+  document.addEventListener('DOMContentLoaded', initApp);
 } else {
-   initApp();
+  initApp();
 }
 
 

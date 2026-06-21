@@ -110,7 +110,7 @@ address {
   transition: background-color 0.4s ease-in-out;
 }
 .header.scrolled::before {
-  background: rgba(248, 243, 236, 0.8);
+  background-color: rgba(248, 243, 236, 0.8);
   backdrop-filter: blur(20px);
 }
 .header__inner {

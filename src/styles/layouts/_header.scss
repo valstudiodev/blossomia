@@ -3,7 +3,6 @@
 
 
 .header {
-   // display: none;
    padding-block: toRem(25);
    position: fixed;
    top: 0;
@@ -26,7 +25,7 @@
 
    &.scrolled {
       &::before {
-         background: rgba(248, 243, 236, 0.8);
+         background-color: rgba(248, 243, 236, 0.8);
          backdrop-filter: blur(20px);
       }
    }
@@ -51,7 +50,6 @@
       }
    }
 }
-
 .menu-header {
 
    @media (max-width: toEm(720)) {
@@ -117,15 +115,31 @@
    }
 
    &__link {
-      transition: color 0.3s, text-shadow 0.3s;
+    position: relative;
+    transition: color 0.3s;
+      
+      &::after {
+        content: "";
+        width: 0;
+        height: toRem(1);
+        background-color: $black;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        transition: width 0.3s, opacity 0.3s;
+        will-change: width,opacity;
+      }
 
       @include hover {
-        color: $colorPrimary;
-        text-shadow: 1px 3px 4px #2C2C2C;
+        color: $black;
+        &::after {
+          width: 100%;
+          opacity: 1;
+        }
       }
    }
 }
-
 .action-button {
       display: flex;
       align-items: center;
@@ -145,21 +159,30 @@
          font-size: toRem(20);
       }
 
+      &--icon-like {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 0;
+          right: -50%;
+          color: $black;
+        }
+      }
+
       @include hover {
         color: #686868;
         scale: 1.05;
       }
-
-      // .action-button__link--icon-search
-      &--icon-search {}
-
-      // .action-button__link--icon-like
-      &--icon-like {}
-
-      // .action-button__link--icon-user
-      &--icon-user {}
-
-      // .action-button__link--icon-card-icon
-      &--icon-card-icon {}
    }
+}
+.card-basket{
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 0%;
+    right: -50%;
+    color: $black;
+  }
 }

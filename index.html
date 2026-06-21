@@ -1,471 +1,474 @@
 <!doctype html>
 <html lang="en" init-page-loader>
 
-<head>
-   <meta charset="UTF-8" />
-   <style>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
       /* Миттєвий фон для всього вікна */
       html {
-         background-color: #F8F3EC;
+        background-color: #F8F3EC;
       }
 
       /* Ховаємо контент, поки немає статусу "ready" */
       html[init-page-loader] body {
-         opacity: 0 !important;
-         visibility: hidden !important;
-         overflow: hidden;
-         /* Блокуємо скрол під час завантаження */
+        opacity: 0 !important;
+        visibility: hidden !important;
+        overflow: hidden;
+        /* Блокуємо скрол під час завантаження */
       }
 
       /* Повертаємо видимість та скрол */
       html[init-page-loader="ready"] body {
-         opacity: 1 !important;
-         visibility: visible !important;
-         overflow: visible;
-         transition: opacity 0.6s ease-in-out !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible;
+        transition: opacity 0.6s ease-in-out !important;
       }
 
       /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
       #loader-progress-bar {
-         position: fixed;
-         top: 0;
-         left: 0;
-         height: 2px;
-         background-color: #00ADB5;
-         z-index: 100000;
-         width: 0%;
-         transition: width 0.4s ease, opacity 0.3s ease;
-         box-shadow: 0 0 10px #0C73B8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background-color: #00ADB5;
+        z-index: 100000;
+        width: 0%;
+        transition: width 0.4s ease, opacity 0.3s ease;
+        box-shadow: 0 0 10px #0C73B8;
       }
-   </style>
-   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Blossomia</title>
-</head>
 
-<body>
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blossomia</title>
+  </head>
 
-   <div class="wrapper">
+  <body>
+
+    <div class="wrapper">
       <header class="header">
-         <div class="header__container">
-            <div class="header__inner">
-               <button class="icon-menu">
+        <div class="header__container">
+          <div class="header__inner">
+            <button class="icon-menu">
+              <span></span>
+            </button>
+            <nav class="header__menu menu-header">
+              <ul class="menu-header__list">
+                <li class="menu-header__item">
+                  <a href="#" class="menu-header__link">About Us</a>
+                </li>
+                <li class="menu-header__item">
+                  <a href="#" class="menu-header__link">Catalog</a>
+                </li>
+                <li class="menu-header__item">
+                  <a href="#" class="menu-header__link">Contacts</a>
+                </li>
+              </ul>
+            </nav>
+            <figure class="header__logo">
+              <img src="/src/assets/icons/logo.svg" alt="logo icon">
+            </figure>
+            <ul class="header__actions action-button">
+              <li class="action-button__item">
+                <a href="#" class="action-button__link action-button__link--icon-search"></a>
+              </li>
+              <li class="action-button__item">
+                <a href="#" class="action-button__link action-button__link--icon-like">
                   <span></span>
-               </button>
-               <nav class="header__menu menu-header">
-                  <ul class="menu-header__list">
-                     <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">About Us</a>
-                     </li>
-                     <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">Catalog</a>
-                     </li>
-                     <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">Contacts</a>
-                     </li>
-                  </ul>
-               </nav>
-               <figure class="header__logo">
-                  <img src="/src/assets/icons/logo.svg" alt="logo icon">
-               </figure>
-               <ul class="header__actions action-button">
-                  <li class="action-button__item">
-                     <a href="#" class="action-button__link action-button__link--icon-search"></a>
-                  </li>
-                  <li class="action-button__item">
-                     <a href="#" class="action-button__link action-button__link--icon-like"></a>
-                  </li>
-                  <li class="action-button__item">
-                     <a href="#" class="action-button__link action-button__link--icon-user"></a>
-                  </li>
-                  <li class="action-button__item">
-                     <a href="#" class="action-button__link action-button__link--icon-card-icon"></a>
-                  </li>
-               </ul>
-            </div>
-         </div>
+                </a>
+              </li>
+              <li class="action-button__item">
+                <a href="#" class="action-button__link action-button__link--icon-user"></a>
+              </li>
+              <li class="action-button__item">
+                <a href="#" class="action-button__link action-button__link--icon-card-icon card-basket">
+                  <span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </header>
 
       <main class="page">
 
-         <section class="page__hero hero">
-            <div class="hero__container hero__container--1600">
-               <div class="hero__column column-hero column-hero--left" data-delay="3000">
-                  <h1 class="column-hero__title">Discover Our Flower Shop's Delightful Collection</h1>
-                  <div class="column-hero__body">
-                     <div class="column-hero__image">
-                        <img src="/src/assets/img/hero/hero-img-small.webp" alt="hero image small">
-                     </div>
-                     <div class="column-hero__content content-hero">
-                        <div class="content-hero__text">
-                           <p>Welcome to our enchanting flower emporium, where beauty blossoms and dreams take shape.
-                              Step into a world of vibrant
-                              colors, captivating fragrances, and artistry that will leave you spellbound.
-                           </p>
-                        </div>
-                        <button type="button" class="content-hero__button button button--icon-arrow-bt">Our
-                           Catalog</button>
-                     </div>
+        <section class="page__hero hero">
+          <div class="hero__container hero__container--1600 hero__container--anim" data-delay="800">
+            <div class="hero__column column-hero column-hero--left">
+              <h1 class="column-hero__title">Discover Our Flower Shop's Delightful Collection</h1>
+              <div class="column-hero__body">
+                <div class="column-hero__image">
+                  <img src="/src/assets/img/hero/hero-img-small.webp" alt="hero image small">
+                </div>
+                <div class="column-hero__content content-hero">
+                  <div class="content-hero__text">
+                    <p>Welcome to our enchanting flower emporium, where beauty blossoms and dreams take shape.
+                      Step into a world of vibrant
+                      colors, captivating fragrances, and artistry that will leave you spellbound.
+                    </p>
                   </div>
-               </div>
-               <div class="hero__column column-hero column-hero--rigth" data-delay="1000">
-                  <div class="column-hero__image column-hero__image---rigth">
-                     <img src="/src/assets/img/hero/hero-img-big.webp" alt="hero image big">
-                  </div>
-                  <div class="decor">
-                     <span class="decor__number">01</span>
-                     <span class="decor__line"></span>
-                     <span class="decor__number">04</span>
-                  </div>
-               </div>
+                  <button type="button" class="content-hero__button button button--icon-arrow-bt">Our
+                    Catalog</button>
+                </div>
+              </div>
             </div>
-         </section>
+            <div class="hero__column column-hero column-hero--rigth">
+              <div class="column-hero__image column-hero__image---rigth">
+                <img src="/src/assets/img/hero/hero-img-big.webp" alt="hero image big">
+              </div>
+              <div class="decor">
+                <span class="decor__number">01</span>
+                <span class="decor__line"></span>
+                <span class="decor__number">04</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
-         <section class="page__popular popular">
-            <div class="popular__container">
-               <div class="popular__column column-popular column-popular--anim" data-treshol="0.1">
-                  <div class="column-popular__image">
-                     <img src="/src/assets/img/popular/popular-img-01.webp" alt="image popular">
-                  </div>
-                  <div class="column-popular__content content-popular">
-                     <div class="content-popular__top">
-                        <h3 class="content-popular__title">Whispering Blooms</h3>
-                        <span class="content-popular__price">from 50 Euro</span>
-                     </div>
-                     <div class="content-popular__text">
-                        <p>At Our Store, we take pride in offering a stunning selection of the most popular flowers that
-                           capture hearts and inspire
-                           joy. Explore our floral paradise and discover the timeless beauty of these beloved blooms.
-                        </p>
-                     </div>
-                     <button type="button" class="content-popular__button button button--icon-arrow-bt">See
-                        Catalog
-                     </button>
-                  </div>
-               </div>
-               <div class="popular__row row-popular row-popular--anim" data-treshol="0.3" data-delay="500">
-                  <h2 class="row-popular__title title">Unveiling Our Popular Bouquet Collection</h2>
-                  <div class="row-popular__items">
-                     <article class="item-popular">
-                        <div class="item-popular__image">
-                           <img src="/src/assets/img/popular/popular-02.webp" alt="image popular">
-                        </div>
-                        <div class="item-popular__content">
-                           <h3 class="item-popular__title">Enchanted Petals</h3>
-                           <span class="item-popular__price">from 70 Euro</span>
-                        </div>
-                     </article>
-                     <article class="item-popular">
-                        <div class="item-popular__image">
-                           <img src="/src/assets/img/popular/popular-03.webp" alt="image popular">
-                        </div>
-                        <div class="item-popular__content">
-                           <h3 class="item-popular__title">Harmony Bouquet</h3>
-                           <span class="item-popular__price">from 40 Euro</span>
-                        </div>
-                     </article>
-                  </div>
-               </div>
+        <section class="page__popular popular">
+          <div class="popular__container ">
+            <div class="popular__column column-popular column-popular--anim" data-treshol="0.1">
+              <div class="column-popular__image">
+                <img src="/src/assets/img/popular/popular-img-01.webp" alt="image popular">
+              </div>
+              <div class="column-popular__content content-popular">
+                <div class="content-popular__top">
+                  <h3 class="content-popular__title">Whispering Blooms</h3>
+                  <span class="content-popular__price">from 50 Euro</span>
+                </div>
+                <div class="content-popular__text">
+                  <p>At Our Store, we take pride in offering a stunning selection of the most popular flowers that
+                    capture hearts and inspire
+                    joy. Explore our floral paradise and discover the timeless beauty of these beloved blooms.
+                  </p>
+                </div>
+                <button type="button" class="content-popular__button button button--icon-arrow-bt">See
+                  Catalog
+                </button>
+              </div>
             </div>
-         </section>
+            <div class="popular__row row-popular row-popular--anim" data-treshol="0.3" data-delay="500">
+              <h2 class="row-popular__title title">Unveiling Our Popular Bouquet Collection</h2>
+              <div class="row-popular__items">
+                <article class="item-popular">
+                  <div class="item-popular__image">
+                    <img src="/src/assets/img/popular/popular-02.webp" alt="image popular">
+                  </div>
+                  <div class="item-popular__content">
+                    <h3 class="item-popular__title">Enchanted Petals</h3>
+                    <span class="item-popular__price">from 70 Euro</span>
+                  </div>
+                </article>
+                <article class="item-popular">
+                  <div class="item-popular__image">
+                    <img src="/src/assets/img/popular/popular-03.webp" alt="image popular">
+                  </div>
+                  <div class="item-popular__content">
+                    <h3 class="item-popular__title">Harmony Bouquet</h3>
+                    <span class="item-popular__price">from 40 Euro</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
 
-         <section class="page__memories memories">
-            <div class="memories__container">
-               <div class="memories__column column-memories column-memories--anim column-memories--left"
-                  data-delay="500">
-                  <div class="column-memories__inner column-memories__inner--left">
-                     <h2 class="column-memories__title title">A Fragrant Tale: Weaving Memories with Flowers</h2>
-                     <div class="column-memories__image column-memories__image--left">
-                        <img src="/src/assets/img/memories/memories-01.webp" alt="memories image">
-                     </div>
-                  </div>
-               </div>
-               <div class="memories__column column-memories column-memories--anim column-memories--right">
-                  <div class="column-memories__inner column-memories__inner--right">
-                     <div class="column-memories__image column-memories__image--right">
-                        <img src="/src/assets/img/memories/memories-02.webp" alt="memories image">
-                     </div>
-                     <div class="column-memories__content contet-memories">
-                        <div class="contet-memories__text">
-                           <p>Blossomia Flower Store sprouted from a passion for nature's exquisite blooms, cultivating
-                              a haven where the beauty of
-                              flowers could inspire and uplift. Each flower that graces our store is carefully selected,
-                              ensuring that only the
-                              freshest and most vibrant petals find their way into our arrangements.
-                           </p>
-                           <p>With meticulous attention to detail, our skilled florists handpick the freshest blossoms,
-                              crafting enchanting
-                              arrangements that become symbols of love, joy, and beauty in life's precious moments.
-                              Whether you want to surprise a
-                              loved one or decorate an event, Blossomia Flower Store is the perfect choice.
-                           </p>
-                        </div>
-                        <button type="button" class="contet-memories__button button button--icon-arrow-bt">Read
-                           More</button>
-                     </div>
-                  </div>
-               </div>
+        <section class="page__memories memories">
+          <div class="memories__container">
+            <div class="memories__column column-memories column-memories--anim column-memories--left" data-delay="500">
+              <div class="column-memories__inner column-memories__inner--left">
+                <h2 class="column-memories__title title">A Fragrant Tale: Weaving Memories with Flowers</h2>
+                <div class="column-memories__image column-memories__image--left">
+                  <img src="/src/assets/img/memories/memories-01.webp" alt="memories image">
+                </div>
+              </div>
             </div>
-         </section>
+            <div class="memories__column column-memories column-memories--anim column-memories--right">
+              <div class="column-memories__inner column-memories__inner--right">
+                <div class="column-memories__image column-memories__image--right">
+                  <img src="/src/assets/img/memories/memories-02.webp" alt="memories image">
+                </div>
+                <div class="column-memories__content contet-memories">
+                  <div class="contet-memories__text">
+                    <p>Blossomia Flower Store sprouted from a passion for nature's exquisite blooms, cultivating
+                      a haven where the beauty of
+                      flowers could inspire and uplift. Each flower that graces our store is carefully selected,
+                      ensuring that only the
+                      freshest and most vibrant petals find their way into our arrangements.
+                    </p>
+                    <p>With meticulous attention to detail, our skilled florists handpick the freshest blossoms,
+                      crafting enchanting
+                      arrangements that become symbols of love, joy, and beauty in life's precious moments.
+                      Whether you want to surprise a
+                      loved one or decorate an event, Blossomia Flower Store is the perfect choice.
+                    </p>
+                  </div>
+                  <button type="button" class="contet-memories__button button button--icon-arrow-bt">Read
+                    More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-         <section class="page__catalog catalog">
-            <div class="catalog__container">
-               <div class="catalog__column column-catalog column-catalog--anim column-catalog--flex">
-                  <article class="item-catalog ">
-                     <a href="#" class="item-catalog__inner">
-                        <div class="item-catalog__image">
-                           <img src="/src/assets/img/catalog/popular-img-01.webp" alt="catalog image">
-                        </div>
-                        <div class="item-catalog__content">
-                           <div class="item-catalog__top">
-                              <h3 class="item-catalog__title">Enchanted Petals</h3>
-                              <div class="item-catalog__actions actions">
-                                 <button class="actions__button actions__button--icon-like"></button>
-                                 <button class="actions__button actions__button--icon-card-icon"></button>
-                              </div>
-                           </div>
-                           <div class="item-catalog__price">70 Euro</div>
-                        </div>
-                     </a>
-                  </article>
-                  <article class="item-catalog item-catalog--margin">
-                     <a href="#" class="item-catalog__inner">
-                        <div class="item-catalog__image">
-                           <img src="/src/assets/img/catalog/popular-img-02.webp" alt="catalog image">
-                        </div>
-                        <div class="item-catalog__content">
-                           <div class="item-catalog__top">
-                              <h3 class="item-catalog__title">Enchanted Petals</h3>
-                              <div class="item-catalog__actions actions">
-                                 <button class="actions__button actions__button--icon-like"></button>
-                                 <button class="actions__button actions__button--icon-card-icon"></button>
-                              </div>
-                           </div>
-                           <div class="item-catalog__price">70 Euro</div>
-                        </div>
-                     </a>
-                  </article>
-                  <button type="button" class="column-catalog__button button button--more button--icon-arrow-bt">Open
-                     More</button>
-               </div>
-               <div class="catalog__column column-catalog column-catalog--anim column-catalog--grid" data-delay="500">
-                  <h2 class="column-catalog__title title">Catalog of Floral Delights for Every Occasion</h2>
-                  <div class="column-catalog__grid">
-                     <article class="item-catalog">
-                        <a href="#" class="item-catalog__inner">
-                           <div class="item-catalog__image">
-                              <img src="/src/assets/img/catalog/popular-img-03.webp" alt="catalog image">
-                           </div>
-                           <div class="item-catalog__content">
-                              <div class="item-catalog__top">
-                                 <h3 class="item-catalog__title">Enchanted Petals</h3>
-                                 <div class="item-catalog__actions actions">
-                                    <button class="actions__button actions__button--icon-like"></button>
-                                    <button class="actions__button actions__button--icon-card-icon"></button>
-                                 </div>
-                              </div>
-                              <div class="item-catalog__price">70 Euro</div>
-                           </div>
-                        </a>
-                     </article>
-                     <article class="item-catalog">
-                        <a href="#" class="item-catalog__inner">
-                           <div class="item-catalog__image">
-                              <img src="/src/assets/img/catalog/popular-img-05.webp" alt="catalog image">
-                           </div>
-                           <div class="item-catalog__content">
-                              <div class="item-catalog__top">
-                                 <h3 class="item-catalog__title">Enchanted Petals</h3>
-                                 <div class="item-catalog__actions actions">
-                                    <button class="actions__button actions__button--icon-like"></button>
-                                    <button class="actions__button actions__button--icon-card-icon"></button>
-                                 </div>
-                              </div>
-                              <div class="item-catalog__price">70 Euro</div>
-                           </div>
-                        </a>
-                     </article>
-                     <article class="item-catalog">
-                        <a href="#" class="item-catalog__inner">
-                           <div class="item-catalog__image">
-                              <img src="/src/assets/img/catalog/popular-img-04.webp" alt="catalog image">
-                           </div>
-                           <div class="item-catalog__content">
-                              <div class="item-catalog__top">
-                                 <h3 class="item-catalog__title">Enchanted Petals</h3>
-                                 <div class="item-catalog__actions actions">
-                                    <button class="actions__button actions__button--icon-like"></button>
-                                    <button class="actions__button actions__button--icon-card-icon"></button>
-                                 </div>
-                              </div>
-                              <div class="item-catalog__price">70 Euro</div>
-                           </div>
-                        </a>
-                     </article>
-                     <article class="item-catalog">
-                        <a href="#" class="item-catalog__inner">
-                           <div class="item-catalog__image">
-                              <img src="/src/assets/img/catalog/popular-img-06.webp" alt="catalog image">
-                           </div>
-                           <div class="item-catalog__content">
-                              <div class="item-catalog__top">
-                                 <h3 class="item-catalog__title">Enchanted Petals</h3>
-                                 <div class="item-catalog__actions actions">
-                                    <button class="actions__button actions__button--icon-like"></button>
-                                    <button class="actions__button actions__button--icon-card-icon"></button>
-                                 </div>
-                              </div>
-                              <div class="item-catalog__price">70 Euro</div>
-                           </div>
-                        </a>
-                     </article>
+        <section class="page__catalog catalog">
+          <div class="catalog__container">
+            <div class="catalog__column column-catalog column-catalog--anim column-catalog--flex">
+              <article class="item-catalog ">
+                <a href="#" class="item-catalog__inner">
+                  <div class="item-catalog__image">
+                    <img src="/src/assets/img/catalog/popular-img-01.webp" alt="catalog image">
                   </div>
-               </div>
+                  <div class="item-catalog__content">
+                    <div class="item-catalog__top">
+                      <h3 class="item-catalog__title">Enchanted Petals</h3>
+                      <div class="item-catalog__actions actions">
+                        <button class="actions__button actions__button--icon-like"></button>
+                        <button class="actions__button actions__button--icon-card-icon"></button>
+                      </div>
+                    </div>
+                    <div class="item-catalog__price">70 Euro</div>
+                  </div>
+                </a>
+              </article>
+              <article class="item-catalog item-catalog--margin">
+                <a href="#" class="item-catalog__inner">
+                  <div class="item-catalog__image">
+                    <img src="/src/assets/img/catalog/popular-img-02.webp" alt="catalog image">
+                  </div>
+                  <div class="item-catalog__content">
+                    <div class="item-catalog__top">
+                      <h3 class="item-catalog__title">Enchanted Petals</h3>
+                      <div class="item-catalog__actions actions">
+                        <button class="actions__button actions__button--icon-like"></button>
+                        <button class="actions__button actions__button--icon-card-icon"></button>
+                      </div>
+                    </div>
+                    <div class="item-catalog__price">70 Euro</div>
+                  </div>
+                </a>
+              </article>
+              <button type="button" class="column-catalog__button button button--more button--icon-arrow-bt">Open
+                More</button>
             </div>
-         </section>
+            <div class="catalog__column column-catalog column-catalog--anim column-catalog--grid" data-delay="500">
+              <h2 class="column-catalog__title title">Catalog of Floral Delights for Every Occasion</h2>
+              <div class="column-catalog__grid">
+                <article class="item-catalog">
+                  <a href="#" class="item-catalog__inner">
+                    <div class="item-catalog__image">
+                      <img src="/src/assets/img/catalog/popular-img-03.webp" alt="catalog image">
+                    </div>
+                    <div class="item-catalog__content">
+                      <div class="item-catalog__top">
+                        <h3 class="item-catalog__title">Enchanted Petals</h3>
+                        <div class="item-catalog__actions actions">
+                          <button class="actions__button actions__button--icon-like"></button>
+                          <button class="actions__button actions__button--icon-card-icon"></button>
+                        </div>
+                      </div>
+                      <div class="item-catalog__price">70 Euro</div>
+                    </div>
+                  </a>
+                </article>
+                <article class="item-catalog">
+                  <a href="#" class="item-catalog__inner">
+                    <div class="item-catalog__image">
+                      <img src="/src/assets/img/catalog/popular-img-05.webp" alt="catalog image">
+                    </div>
+                    <div class="item-catalog__content">
+                      <div class="item-catalog__top">
+                        <h3 class="item-catalog__title">Enchanted Petals</h3>
+                        <div class="item-catalog__actions actions">
+                          <button class="actions__button actions__button--icon-like"></button>
+                          <button class="actions__button actions__button--icon-card-icon"></button>
+                        </div>
+                      </div>
+                      <div class="item-catalog__price">70 Euro</div>
+                    </div>
+                  </a>
+                </article>
+                <article class="item-catalog">
+                  <a href="#" class="item-catalog__inner">
+                    <div class="item-catalog__image">
+                      <img src="/src/assets/img/catalog/popular-img-04.webp" alt="catalog image">
+                    </div>
+                    <div class="item-catalog__content">
+                      <div class="item-catalog__top">
+                        <h3 class="item-catalog__title">Enchanted Petals</h3>
+                        <div class="item-catalog__actions actions">
+                          <button class="actions__button actions__button--icon-like"></button>
+                          <button class="actions__button actions__button--icon-card-icon"></button>
+                        </div>
+                      </div>
+                      <div class="item-catalog__price">70 Euro</div>
+                    </div>
+                  </a>
+                </article>
+                <article class="item-catalog">
+                  <a href="#" class="item-catalog__inner">
+                    <div class="item-catalog__image">
+                      <img src="/src/assets/img/catalog/popular-img-06.webp" alt="catalog image">
+                    </div>
+                    <div class="item-catalog__content">
+                      <div class="item-catalog__top">
+                        <h3 class="item-catalog__title">Enchanted Petals</h3>
+                        <div class="item-catalog__actions actions">
+                          <button class="actions__button actions__button--icon-like"></button>
+                          <button class="actions__button actions__button--icon-card-icon"></button>
+                        </div>
+                      </div>
+                      <div class="item-catalog__price">70 Euro</div>
+                    </div>
+                  </a>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
 
-         <section class="page__discount discount">
-            <div class="discount__container">
-               <div class="discount__column column-discount column-discount--anim column-discount--left"
-                  data-delay="500">
-                  <h2 class="column-discount__title title">20% Off Your First Purchase at Our Store!</h2>
-                  <div class="column-discount__image column-discount__image--left">
-                     <img src="/src/assets/img/off/discount-01.webp" alt="discount image">
-                  </div>
-               </div>
-               <div class="discount__column column-discount column-discount--anim column-discount--right">
-                  <div class="column-discount__image column-discount__image--right">
-                     <img src="/src/assets/img/off/discount-02.webp" alt="discount image">
-                  </div>
-                  <div class="column-discount__content">
-                     <div class="column-discount__text">
-                        <p>At our store, we believe in celebrating new beginnings. That's why we're thrilled to offer an
-                           exclusive deal for
-                           first-time customers. Enjoy a remarkable 20% off on your inaugural purchase with us. Delight
-                           in selecting from our wide
-                           range of high-quality products, handpicked and crafted with utmost care.
-                        </p>
-                     </div>
-                     <button type="button"
-                        class="column-discount__button button button--order button--icon-arrow-bt">Order</button>
-                  </div>
-               </div>
+        <section class="page__discount discount">
+          <div class="discount__container">
+            <div class="discount__column column-discount column-discount--anim column-discount--left" data-delay="500">
+              <h2 class="column-discount__title title">20% Off Your First Purchase at Our Store!</h2>
+              <div class="column-discount__image column-discount__image--left">
+                <img src="/src/assets/img/off/discount-01.webp" alt="discount image">
+              </div>
             </div>
-         </section>
+            <div class="discount__column column-discount column-discount--anim column-discount--right">
+              <div class="column-discount__image column-discount__image--right">
+                <img src="/src/assets/img/off/discount-02.webp" alt="discount image">
+              </div>
+              <div class="column-discount__content">
+                <div class="column-discount__text">
+                  <p>At our store, we believe in celebrating new beginnings. That's why we're thrilled to offer an
+                    exclusive deal for
+                    first-time customers. Enjoy a remarkable 20% off on your inaugural purchase with us. Delight
+                    in selecting from our wide
+                    range of high-quality products, handpicked and crafted with utmost care.
+                  </p>
+                </div>
+                <button type="button"
+                  class="column-discount__button button button--order button--icon-arrow-bt">Order</button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-         <section class="page__follow follow">
-            <div class="follow__container">
-               <div class="follow__column column-follow column-follow--anim column-follow--left">
-                  <div class="column-follow__image">
-                     <img src="/src/assets/img/follow/follow-img-01.webp" alt="image follow">
-                  </div>
-                  <div class="column-follow__text">
-                     <p>Be the first to know about our exciting events, exclusive offers, and new arrivals. Join our
-                        floral community and let us
-                        fill your feed with beauty and botanical wonders. Follow us today and embark on a blooming
-                        journey that will ignite your
-                        passion for all things floral.
-                     </p>
-                  </div>
-               </div>
-               <div class="follow__column column-follow column-follow--anim column-follow--right" data-delay="500">
-                  <h2 class="column-follow__title title">Stay Connected: Follow Our Floral Journey</h2>
-                  <a href="#" class="column-follow__link">@blossomiaflowerstudio</a>
-                  <div class="column-follow__images image-follow">
-                     <div class="image-follow__img">
-                        <img src="/src/assets/img/follow/follow-img-02.webp" alt="follow image">
-                     </div>
-                     <div class="image-follow__img">
-                        <img src="/src/assets/img/follow/follow-img-03.webp" alt="follow image">
-                     </div>
-                  </div>
-               </div>
+        <section class="page__follow follow">
+          <div class="follow__container">
+            <div class="follow__column column-follow column-follow--anim column-follow--left">
+              <div class="column-follow__image">
+                <img src="/src/assets/img/follow/follow-img-01.webp" alt="image follow">
+              </div>
+              <div class="column-follow__text">
+                <p>Be the first to know about our exciting events, exclusive offers, and new arrivals. Join our
+                  floral community and let us
+                  fill your feed with beauty and botanical wonders. Follow us today and embark on a blooming
+                  journey that will ignite your
+                  passion for all things floral.
+                </p>
+              </div>
             </div>
-         </section>
+            <div class="follow__column column-follow column-follow--anim column-follow--right" data-delay="500">
+              <h2 class="column-follow__title title">Stay Connected: Follow Our Floral Journey</h2>
+              <a href="#" class="column-follow__link">@blossomiaflowerstudio</a>
+              <div class="column-follow__images image-follow">
+                <div class="image-follow__img">
+                  <img src="/src/assets/img/follow/follow-img-02.webp" alt="follow image">
+                </div>
+                <div class="image-follow__img">
+                  <img src="/src/assets/img/follow/follow-img-03.webp" alt="follow image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer class="footer footer--anim" data-delay="300">
-         <div class="footer__body body-footer">
-            <div class="body-footer__container">
-               <div class="body-footer__media media">
-                  <figure class="media__logo">
-                     <img src="/src/assets/icons/logo.svg" alt="logo icon">
-                  </figure>
-                  <ul class="media__social social-media">
-                     <li class="social-media__item">
-                        <a href="#" class="social-media__link social-media__link--icon-instagram"></a>
-                     </li>
-                     <li class="social-media__item">
-                        <a href="#" class="social-media__link social-media__link--icon-i-fb"></a>
-                     </li>
-                     <li class="social-media__item">
-                        <a href="#" class="social-media__link social-media__link--icon-mail1"></a>
-                     </li>
-                     <li class="social-media__item">
-                        <a href="#" class="social-media__link social-media__link--icon-telegram"></a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="body-footer__inner">
-                  <div class="body-footer__column column-body">
-                     <h3 class="column-body__title">Categories</h3>
-                     <ul class="column-body__list">
-                        <li class="column-body__item">
-                           <a href="#" class="column-body__link">About Us</a>
-                        </li>
-                        <li class="column-body__item">
-                           <a href="#" class="column-body__link">Catalog</a>
-                        </li>
-                        <li class="column-body__item">
-                           <a href="#" class="column-body__link">Contact</a>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="body-footer__column column-body">
-                     <h3 class="column-body__title">Support</h3>
-                     <ul class="column-body__list">
-                        <li class="column-body__item">
-                           <a href="#" class="column-body__link">Delivery & Payment</a>
-                        </li>
-                        <li class="column-body__item">
-                           <a href="#" class="column-body__link">Help & Support</a>
-                        </li>
-                        <li class="column-body__item">
-                           <a href="#" class="column-body__link">24/7H Services</a>
-                        </li>
-                     </ul>
-                  </div>
-                  <address class="body-footer__column body-footer__column--last-child address">
-                     <ul class="address__list">
-                        <li class="address__item">
-                           <a href="#" class="address__link">+123 456 789</a>
-                        </li>
-                        <li class="address__item">
-                           <a href="#" class="address__link">blossomia@gmail.com</a>
-                        </li>
-                        <li class="address__item">
-                           <a href="#" class="address__link address__link--address">789 Spring Lane Roseville, CA 98765
-                              United States</a>
-                        </li>
-                     </ul>
-                     <span class="address__schedule">10:00 - 19:00</span>
-                  </address>
-               </div>
+        <div class="footer__body body-footer">
+          <div class="body-footer__container">
+            <div class="body-footer__media media media--anim">
+              <figure class="media__logo">
+                <img src="/src/assets/icons/logo.svg" alt="logo icon">
+              </figure>
+              <ul class="media__social social-media">
+                <li class="social-media__item">
+                  <a href="#" class="social-media__link social-media__link--icon-instagram"></a>
+                </li>
+                <li class="social-media__item">
+                  <a href="#" class="social-media__link social-media__link--icon-i-fb"></a>
+                </li>
+                <li class="social-media__item">
+                  <a href="#" class="social-media__link social-media__link--icon-mail1"></a>
+                </li>
+                <li class="social-media__item">
+                  <a href="#" class="social-media__link social-media__link--icon-telegram"></a>
+                </li>
+              </ul>
             </div>
-         </div>
-         <div class="footer__bottom bottom-footer">
-            <div class="bottom-footer__container">
-               <a href="#" class="bottom-footer__copyright">
-                  <p>Blossomia ©Copyright 2023. All rights reserved.</p>
-               </a>
+            <div class="body-footer__inner body-footer__inner--anim">
+              <div class="body-footer__column anim-child column-body">
+                <h3 class="column-body__title">Categories</h3>
+                <ul class="column-body__list">
+                  <li class="column-body__item">
+                    <a href="#" class="column-body__link">About Us</a>
+                  </li>
+                  <li class="column-body__item">
+                    <a href="#" class="column-body__link">Catalog</a>
+                  </li>
+                  <li class="column-body__item">
+                    <a href="#" class="column-body__link">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="body-footer__column anim-child column-body">
+                <h3 class="column-body__title">Support</h3>
+                <ul class="column-body__list">
+                  <li class="column-body__item">
+                    <a href="#" class="column-body__link">Delivery & Payment</a>
+                  </li>
+                  <li class="column-body__item">
+                    <a href="#" class="column-body__link">Help & Support</a>
+                  </li>
+                  <li class="column-body__item">
+                    <a href="#" class="column-body__link">24/7H Services</a>
+                  </li>
+                </ul>
+              </div>
+              <address class="body-footer__column anim-child body-footer__column--last-child address">
+                <ul class="address__list">
+                  <li class="address__item">
+                    <a href="#" class="address__link">+123 456 789</a>
+                  </li>
+                  <li class="address__item">
+                    <a href="#" class="address__link">blossomia@gmail.com</a>
+                  </li>
+                  <li class="address__item">
+                    <a href="#" class="address__link address__link--address">789 Spring Lane Roseville, CA 98765
+                      United States</a>
+                  </li>
+                </ul>
+                <span class="address__schedule">10:00 - 19:00</span>
+              </address>
             </div>
-         </div>
+          </div>
+        </div>
+        <div class="footer__bottom bottom-footer">
+          <div class="bottom-footer__container">
+            <a href="#" class="bottom-footer__copyright">
+              <p>Blossomia ©Copyright 2023. All rights reserved.</p>
+            </a>
+          </div>
+        </div>
       </footer>
-   </div>
+    </div>
 
 
-   <div id="app"></div>
-   <script type="module" src="src/main.js"></script>
-</body>
+    <div id="app"></div>
+    <script type="module" src="src/main.js"></script>
+  </body>
 
 </html>
